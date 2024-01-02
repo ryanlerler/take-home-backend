@@ -3,25 +3,22 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert("users", [
+    await queryInterface.bulkInsert("project_risks", [
       {
-        email: "lyp2726@outlook.com",
-        name: "Ryan Ler",
-        role: "PM",
+        user_id: 1,
+        name: "A",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
-        email: "lyp2726@gmail.com",
-        name: "Tan",
-        role: "RC",
+        user_id: 1,
+        name: "B",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
-        email: "lyp2726@hotmail.com",
-        name: "Lee",
-        role: "PM",
+        user_id: 3,
+        name: "C",
         created_at: new Date(),
         updated_at: new Date(),
       },
@@ -29,6 +26,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("users", null, {});
+    await queryInterface.bulkDelete("project_risks", null, {});
   },
 };

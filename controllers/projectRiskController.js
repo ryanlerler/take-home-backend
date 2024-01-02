@@ -25,7 +25,8 @@ class ProjectRiskController extends BaseController {
   };
 
   add = async (req, res) => {
-    const { email, riskScenarioId, mitigationStatusId } = req.body;
+    const { email, riskScenarioId, projectRiskId, mitigationStatusId } =
+      req.body;
     try {
       const user = await this.userModel.findOne({
         where: {
@@ -33,8 +34,11 @@ class ProjectRiskController extends BaseController {
         },
       });
 
+      console.log(projectRiskId);
+
       const projectRisk = await this.model.create({
         userId: user.id,
+        name: projectRiskId === 1 ? "A" : projectRiskId === 2 ? "B" : "C",
       });
 
       const newProject = await this.projectRiskScenarioModel.create({
